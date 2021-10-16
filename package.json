@@ -1,0 +1,31 @@
+{
+  "name": "@blue-phoenix-org/bluecord",
+  "version": "1.0.0",
+  "description": "A simple library to make discord bots by easy way (development)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blue-Phoenix-org/bluecord.git"
+  },
+  "keywords": [
+    "discord",
+    "discord",
+    "bots",
+    "bots",
+    "discord",
+    "wrapper"
+  ],
+  "author": "Blue Phoenix",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Blue-Phoenix-org/bluecord/issues"
+  },
+  "homepage": "https://github.com/Blue-Phoenix-org/bluecord#readme",
+  "dependencies": {
+    "socket.io-client": "^4.3.1"
+  }
+}
