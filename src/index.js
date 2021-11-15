@@ -12,6 +12,12 @@ class Base_Handler extends eventemitter {
         this.api_url = API_URL + `/${this.options?.version || "v9"}`;
         this.app = null;
         console.log(this.api_url)
+        
+        Object.defineProperties(this, {
+            'token': {
+                enumerable: false
+            }
+        });
     }
     /**
      * Start the command handler.
