@@ -1,7 +1,7 @@
 {
   "name": "@blue-phoenix-org/bluecord",
   "version": "1.0.0",
-  "description": "A simple library to make discord bots by easy way (development)",
+  "description": "Manage your slash commands by simple way with blue cord.",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -29,5 +29,8 @@
   "dependencies": {
     "axios": "^0.24.0",
     "eventemitter3": "^4.0.7"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/Blue-Phoenix-org"
   }
 }
