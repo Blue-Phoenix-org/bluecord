@@ -1,5 +1,4 @@
 # Blue Cord
-&bull; A simple library to make discord bots by easy way.
-
+&bull; Manage your slash commands by simple way with blue cord.
 ## About Blue Cord
-Blue cord is actually in development, but new updates are incoming.
+Blue Cord now are in development, but new updates are incoming.
