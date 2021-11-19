@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blue-Phoenix-org/bluecord.git"
+    "url": "git+https://github.com/Blue-Phoenix-org/bluecord.git" 
   },
   "keywords": [
     "discord",
