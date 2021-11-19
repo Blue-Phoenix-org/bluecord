@@ -31,6 +31,6 @@
     "eventemitter3": "^4.0.7"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/Blue-Phoenix-org"
+    "registry": "https://registry.npmjs.org"
   }
 }
