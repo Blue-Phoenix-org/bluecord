@@ -39,6 +39,7 @@
   },
   "optionalDependencies": {
     "better-docs": "^2.3.2",
-    "jsdoc": "^3.6.7"
+    "jsdoc": "^3.6.7",
+    "pug": "^3.0.2"
   }
 }
