@@ -4,7 +4,7 @@
  * @param {Object} command The command object.
  * @returns {Object} The command object with separated commands and groups of commands.
 */
-function commandSeparate(command) {
+function separateCommand(command) {
     if(!command) {
         throw new Error('You need tho provide the command object.');
     }
@@ -57,4 +57,4 @@ function commandSeparate(command) {
     }
 }
 
-export default commandSeparate
+export default separateCommand

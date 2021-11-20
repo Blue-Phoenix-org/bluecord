@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blue Cord Documentation utils/separateCommand.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Blue Cord</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-advanced usage.html">
+                                advanced usage
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-basic handler.html">
+                                basic handler
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-example with eris.html">
+                                example with eris
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                 
+                    
+                        <a
+                            class="link user-link "
+                            href="https://github.com/Blue-Phoenix-org/bluecord"
+                        >
+                            GitHub
+                        </a>
+                    
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Base_Manager.html">Base_Manager</a></li><li><a href="Manager.html">Manager</a></li></ul><h3>Global</h3><ul><li><a href="global.html#separateCommand">separateCommand</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>utils/separateCommand.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * Checks the command and separate the commands and groups of commands.
+ * @param {Object} command The command object.
+ * @returns {Object} The command object with separated commands and groups of commands.
+*/
+function separateCommand(command) {
+    if(!command) {
+        throw new Error('You need tho provide the command object.');
+    }
+    const options = command.options
+    if(!options) {
+        return {
+            metrics: { 
+                commands: 1,
+                groups: 0,
+                iterations: 0
+             },
+            commands: [command]
+        }
+    }
+    let metrics = {}
+    const subcommands = []
+    const groups = []
+    let index = 0
+    let total_iterations = 0
+    let sub = options.filter(option => option.type === 1 || option.type === 2)
+
+    // now, lets separate the commands and groups of commands in this loop
+    while(1 > 0) {
+        const cmd = sub[index]
+        if(!cmd) {
+            metrics = {
+                commands: subcommands.length,
+                groups: groups.length,
+                iterations: total_iterations
+            }
+            return {
+                metrics: metrics,
+                commands: subcommands,
+                groups: groups
+            }
+        }
+        if(cmd.type === 1) {
+            // if is a command, only push it to the commands array and increase the index
+            subcommands.push(cmd)
+            index += 1
+        } else if(cmd.type === 2) {
+            // if is a group, push it to the groups array and sets the index to the first command of the group.
+            // and change the value of sub to the commands of the group, to make iteration over the commands of the group.
+            sub = cmd.options.filter(option => option.type === 1 || option.type === 2)
+            groups.push(cmd)
+            index = 0
+        }
+        //total iterations is only for metrics, you can know the total commands and groups viewing this.
+        total_iterations += 1
+    }
+}
+
+export default separateCommand</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
+</body>
+</html>

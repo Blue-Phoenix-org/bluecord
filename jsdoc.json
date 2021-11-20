@@ -1,0 +1,32 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "opts": {
+        "template": "node_modules/better-docs",
+        "encoding": "utf8",
+        "destination": "documentation/website",
+        "recurse": true,
+        "verbose": true,
+        "readme": "readme.md",
+        "tutorials": "documentation/tutorials"
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "search": true,
+        "better-docs": {
+            "title": "Blue Cord Documentation",
+            "name": "Blue Cord",
+            "description": "Manage your slash commands by simple way with blue cord.",
+            "hideGenerator": true,
+            "navLinks": [
+                {
+                    "label": "GitHub",
+                    "href": "https://github.com/Blue-Phoenix-org/bluecord",
+                    "target": "_blank"
+                }
+            ]
+        }
+    }
+}

@@ -1,4 +1,132 @@
-import pkg from "axios"
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blue Cord Documentation index.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Blue Cord</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-advanced usage.html">
+                                advanced usage
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-basic handler.html">
+                                basic handler
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-example with eris.html">
+                                example with eris
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                 
+                    
+                        <a
+                            class="link user-link "
+                            href="https://github.com/Blue-Phoenix-org/bluecord"
+                        >
+                            GitHub
+                        </a>
+                    
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Base_Manager.html">Base_Manager</a></li><li><a href="Manager.html">Manager</a></li></ul><h3>Global</h3><ul><li><a href="global.html#separateCommand">separateCommand</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>index.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import pkg from "axios"
 import EventEmitter from "eventemitter3";
 import separateCommand from "./utils/separateCommand.js"
 const { get, post, patch, put, delete: Delete } = pkg
@@ -90,7 +218,7 @@ class Base_Manager extends EventEmitter {
     /**
      * Get application commands.
      * @param {String} [guild] Guild id to get commands, if is undefined will get global commands.
-     * @returns {Promise<Object>}
+     * @returns {Promise&lt;Object>}
     */
      async getCommands(guild) {
         if(!this.app) {
@@ -133,7 +261,7 @@ class Manager extends Base_Manager {
      * Register a new application command.
      * @param {Object} command The command object.
      * @param {String} [guild] The guild id to register the command, if is undefined will register global command.
-     * @returns {Promise<Object>} The new command object. 
+     * @returns {Promise&lt;Object>} The new command object. 
     */
     async registerCommand(command, guild) {
         if(!this.app) {
@@ -145,7 +273,7 @@ class Manager extends Base_Manager {
         if(typeof command !== "object") {
             throw new Error("Command must be an object.")
         }
-        if(guild && typeof guild !== "string") {
+        if(guild &amp;&amp; typeof guild !== "string") {
             throw new Error("Guild ID must be a string.")
         }
         let url
@@ -170,7 +298,7 @@ class Manager extends Base_Manager {
      * @param {String} commandID The ID of the command to edit.
      * @param {Object} command The new command object.
      * @param {String} [guild] the guild id to edit the command, if is undefined will edit global command.
-     * @returns {Promise<Object>} The new command object.
+     * @returns {Promise&lt;Object>} The new command object.
     */
     async editCommand(commandID, command, guild) {
         if(!this.app) {
@@ -185,7 +313,7 @@ class Manager extends Base_Manager {
         if(typeof command !== "object") {
             throw new Error("Command must be an object.")
         }
-        if(guild && typeof guild !== "string") {
+        if(guild &amp;&amp; typeof guild !== "string") {
             throw new Error("Guild ID must be a string.")
         }
         let url
@@ -214,7 +342,7 @@ class Manager extends Base_Manager {
      * Delete a application command.
      * @param {String} commandID The ID of the command to delete.
      * @param {String} [guild] The guild id to delete the command, if is undefined will delete global command.
-     * @returns {Promise<Object>} The deleted command object.
+     * @returns {Promise&lt;Object>} The deleted command object.
     */
     async deleteCommand(commandID, guild) {
         if(!this.app) {
@@ -226,7 +354,7 @@ class Manager extends Base_Manager {
         if(!commandID) {
             throw new Error("Command ID is required.")
         }
-        if(guild && typeof guild !== "string") {
+        if(guild &amp;&amp; typeof guild !== "string") {
             throw new Error("Guild ID must be a string.")
         }
         let url
@@ -253,7 +381,7 @@ class Manager extends Base_Manager {
      * Search for a application command.
      * @param {String} commandName The name of the command to search.
      * @param {String} [guild] The guild id to search the command, if is undefined will search global command.
-     * @returns {Promise<Array>} The commands matching the name.
+     * @returns {Promise&lt;Array>} The commands matching the name.
     */
     async searchCommand(commandName, guild) {
         if(!this.app) {
@@ -268,7 +396,7 @@ class Manager extends Base_Manager {
         if(typeof commandName !== "string") {
             throw new Error("Command name must be a string.")
         }
-        if(guild && typeof guild !== "string") {
+        if(guild &amp;&amp; typeof guild !== "string") {
             throw new Error("Guild id must be a string.")
         }
         const cmds = await this.getCommands(guild)
@@ -282,4 +410,24 @@ class Manager extends Base_Manager {
 export default {
     Manager,
     Base_Manager
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
+</body>
+</html>
