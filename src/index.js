@@ -1,7 +1,6 @@
-import pkg from "axios"
-import EventEmitter from "eventemitter3";
-import separateCommand from "./utils/separateCommand.js"
-const { get, post, patch, put, delete: Delete } = pkg
+const { get, post, patch, put, delete: Delete } = require("axios");
+const EventEmitter = require("eventemitter3");
+const separateCommand = require("./utils/separateCommand.js");
 const API_URL = "https://discord.com/api"
 
 /**
@@ -279,7 +278,7 @@ class Manager extends Base_Manager {
     }
 }
 
-export default {
+module.exports = {
     Manager: Manager,
     Base_Manager: Base_Manager
 }

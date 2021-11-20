@@ -57,4 +57,4 @@ function separateCommand(command) {
     }
 }
 
-export default separateCommand
+module.exports = separateCommand

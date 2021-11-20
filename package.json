@@ -3,7 +3,6 @@
   "version": "1.0.4",
   "description": "Manage your slash commands by simple way with blue cord.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs-build": "jsdoc src/ -c jsdoc.json"

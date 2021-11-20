@@ -1,3 +1,3 @@
-import Module from "./src/index.js"
+const Module = require("./src/index.js")
 
-export default Module
+module.exports = Module
