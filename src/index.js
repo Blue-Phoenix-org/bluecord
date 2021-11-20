@@ -280,6 +280,6 @@ class Manager extends Base_Manager {
 }
 
 export default {
-    Manager,
-    Base_Manager
+    Manager: Manager,
+    Base_Manager: Base_Manager
 }
