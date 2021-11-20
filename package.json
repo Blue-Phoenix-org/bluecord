@@ -1,6 +1,6 @@
 {
   "name": "bluecord",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Manage your slash commands by simple way with blue cord.",
   "main": "index.js",
   "type": "module",
