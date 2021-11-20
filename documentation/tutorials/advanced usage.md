@@ -1,4 +1,4 @@
-# More advanced usage of blue cord
+## More advanced usage of blue cord
 
 Blue cord have two classes, `Base_Manager` and `Manager`
 

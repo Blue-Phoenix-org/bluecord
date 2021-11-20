@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blue Cord Documentation example with eris</title>
+  <title>Blue Cord Documentation handle commands</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -119,40 +119,71 @@
             <div class="content">
                 <header class="page-title">
                     <p>Tutorial</p>
-                    <h1>example with eris</h1>
+                    <h1>handle commands</h1>
                 </header>
                 <section>
 
 <article>
-    <h2>Basic command handler example with eris</h2>
-<p>Now, let's go see an simple example of how to use bluecord with eris (is the same way with discord.js and others wrappers).</p>
-<p>In this example, we will use ES6, but don't have any problems if you use commonJS.</p>
-<pre class="prettyprint source lang-js"><code>import eris from &quot;eris&quot;;
-import Bluecord from &quot;bluecord&quot;;
+    <h2>Handling commands with Blue Cord.</h2>
+<p>Handle commands with Blue Cord is very simple.</p>
+<h3>Creating commands</h3>
+<h4>Create a global command</h4>
+<pre class="prettyprint source lang-js"><code>import Bluecord from &quot;bluecord&quot;;
 
 const token = &quot;your discord bot token&quot;;
 const options = {
-    version: &quot;9&quot;
-} // &lt;-- this options will be passed to blue cord manager.
+    version: &quot;v9&quot;;
+}
 
-const bot = new eris(token)
-const Handler = new Bluecord.Manager(token, options)
+const Handler = new Bluecord.Manager(token, options);
 
-bot.on(&quot;ready&quot;, () => {
-    console.log(&quot;Bot is connected to discord gateway!&quot;)
-})
-
-// your code here
-
-
-// to avoid use of bluecord functions without they are started, it's recommended to use the following code:
 Handler.on(&quot;ready&quot;, () => {
-    console.log(&quot;Command handler is ready!&quot;)
-    bot.connect()
+    console.log(&quot;Command Handler ready!&quot;)
+    const my_cool_command = {
+        name: &quot;ping&quot;,
+        description: &quot;A simple ping command&quot;
+    }
+    Handler.registerCommand(my_cool_command);
 })
+</code></pre>
+<h4>Create a local command</h4>
+<pre class="prettyprint source lang-js"><code>import Bluecord from &quot;bluecord&quot;;
 
-// bluecord automatically start when you call the Manager constructor, but if you use the Base_Manager, you need to start it manually.
-// if you try to use bluecord functions that need the app informations, you will get an error.
+const token = &quot;your discord bot token&quot;;
+const options = {
+    version: &quot;v9&quot;;
+}
+
+const Handler = new Bluecord.Manager(token, options);
+
+Handler.on(&quot;ready&quot;, () => {
+    console.log(&quot;Command Handler ready!&quot;)
+
+    const my_cool_guild = &quot;your guild id&quot;
+    const my_cool_command = {
+        name: &quot;ping&quot;,
+        description: &quot;A simple ping command&quot;
+    }
+
+    Handler.registerCommand(my_cool_command, my_cool_guild);
+})
+</code></pre>
+<p><strong>The same logic can be used for <code>editCommand</code>, <code>deleteCommand</code> and <code>searchCommand</code>.</strong></p>
+<h3>Searching commands</h3>
+<pre class="prettyprint source lang-js"><code>import Bluecord from &quot;bluecord&quot;;
+
+const token = &quot;your discord bot token&quot;;
+const options = {
+    version: &quot;v9&quot;;
+}
+
+const Handler = new Bluecord.Manager(token, options);
+
+Handler.on(&quot;ready&quot;, async () => {
+    console.log(&quot;Command Handler ready!&quot;)
+    const Commands_results = await Handler.searchCommand(&quot;ping&quot;);
+    console.log(&quot;Commands found:&quot;, Commands_results);
+})
 </code></pre>
 </article>
 

@@ -78,6 +78,10 @@
                                 example with eris
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-handle commands.html">
+                                handle commands
+                            </a>
+                        
                         </div>
                     </div>
                 </div>
@@ -126,10 +130,9 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import pkg from "axios"
-import EventEmitter from "eventemitter3";
-import separateCommand from "./utils/separateCommand.js"
-const { get, post, patch, put, delete: Delete } = pkg
+            <pre class="prettyprint source linenums"><code>const { get, post, patch, put, delete: Delete } = require("axios");
+const EventEmitter = require("eventemitter3");
+const separateCommand = require("./utils/separateCommand.js");
 const API_URL = "https://discord.com/api"
 
 /**
@@ -399,7 +402,7 @@ class Manager extends Base_Manager {
         if(guild &amp;&amp; typeof guild !== "string") {
             throw new Error("Guild id must be a string.")
         }
-        const cmds = await this.getCommands(guild)
+        const cmds = guild ? await this.getCommands(guild) : this.app.commands
         const filtered = cmds.filter(c => {
             return c.name.toLowerCase().includes(commandName.toLowerCase())
         })
@@ -407,9 +410,9 @@ class Manager extends Base_Manager {
     }
 }
 
-export default {
-    Manager,
-    Base_Manager
+module.exports = {
+    Manager: Manager,
+    Base_Manager: Base_Manager
 }</code></pre>
         </article>
     </section>

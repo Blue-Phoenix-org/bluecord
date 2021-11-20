@@ -270,7 +270,7 @@ class Manager extends Base_Manager {
         if(guild && typeof guild !== "string") {
             throw new Error("Guild id must be a string.")
         }
-        const cmds = await this.getCommands(guild)
+        const cmds = guild ? await this.getCommands(guild) : this.app.commands
         const filtered = cmds.filter(c => {
             return c.name.toLowerCase().includes(commandName.toLowerCase())
         })

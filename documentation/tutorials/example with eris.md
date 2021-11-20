@@ -1,4 +1,4 @@
-# Basic command handler example with eris
+## Basic command handler example with eris
 
 Now, let's go see an simple example of how to use bluecord with eris (is the same way with discord.js and others wrappers).
 

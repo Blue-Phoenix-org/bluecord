@@ -36,5 +36,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "optionalDependencies": {}
+  "optionalDependencies": {},
+  "devDependencies": {}
 }

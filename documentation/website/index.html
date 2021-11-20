@@ -76,6 +76,10 @@
                                 example with eris
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-handle commands.html">
+                                handle commands
+                            </a>
+                        
                         </div>
                     </div>
                 </div>
@@ -143,8 +147,36 @@
     <section>
         <article><h1>Blue Cord</h1>
 <p>• Manage your slash commands by simple way with blue cord.</p>
-<h2>About Blue Cord</h2>
-<p>Blue Cord now are in development, but new updates are incoming.</p></article>
+<h2>About</h2>
+<p>Blue Cord is a very simple library that help you to manage your slash commands.</p>
+<ul>
+<li>Easy to use</li>
+<li>Compatible with every discord wrapper made with node.js</li>
+</ul>
+<h2>Installation</h2>
+<p>Node 14.x or higher is required.</p>
+<pre class="prettyprint source lang-bash"><code>npm install bluecord
+yarn add bluecord
+</code></pre>
+<h2>Example Usage</h2>
+<p>Start the command manager.</p>
+<pre class="prettyprint source lang-js"><code>import Bluecord from &quot;bluecord&quot;;
+
+const token = &quot;your discord bot token&quot;;
+const options = {
+    version: &quot;9&quot;
+}
+
+// Create a new instance of blue cord.
+const commandHandler = new Bluecord.Manager(token, options)
+
+// Listening for ready event.
+commandHandler.on(&quot;ready&quot;, () => {
+    console.log(&quot;Command handler is ready!&quot;);
+    console.log(`Detected ${commandHandler.app.commands.length} commands.`);
+});
+</code></pre>
+<p>Learn how to use blue cord here: <a href="https://blue-phoenix-org.github.io/bluecord/documentation/website/">Documentation</a></p></article>
     </section>
 
 

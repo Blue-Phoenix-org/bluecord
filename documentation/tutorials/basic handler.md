@@ -1,4 +1,4 @@
-# Basic command handler with blue cord.
+## Basic command handler with blue cord.
 
 In this example, we will use ES6, but don't have any problems if you use commonJS.
 
