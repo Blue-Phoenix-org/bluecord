@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/Blue-Phoenix-org/bluecord#readme",
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^1.6.0",
     "eventemitter3": "^4.0.7"
   },
   "publishConfig": {
